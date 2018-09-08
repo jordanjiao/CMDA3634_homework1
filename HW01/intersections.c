@@ -36,9 +36,32 @@ int ray_sphere_intersection(ray_t observer, sphere_t obj, vector_t *intersection
 
 //if there is no intersection, this function should return 0
 //Otherwise, populate 'intersection' with the point of intersection and return 1
-int ray_disk_intersection(ray_t observer, disk_t obj, vector_t *intersection) {
-  //Question 3: Modify this function to compute an intersection
-  return 0;
+int ray_disk_intersection(ray_t observer, disk_t obj, vector_t *intersection) 
+{
+  //linear term inside the norm
+  vector_t connect = observer.dir;
+  vector_t axis = difference(observe.start,obj.center);
+  
+  double one = dot_product(connect, (difference(obj.center,observe.start)));
+  double two = dot_product(obj.normal, connect);
+  double three = a/b;
+  
+  if(three<0)
+  {
+    return 0;
+  }
+  double four = distance(axis, t*connect);
+  double five = obj.radius;
+  
+  if(four>five)
+  {
+    return 0;
+  }
+  vector_t answer = scaled_sum(1.,observer.start,h,observer.dir);
+  
+  copy_vector(solution, intersection);
+  return 1;
+  
 }
 
 //if there is no intersection, this function should return 0
